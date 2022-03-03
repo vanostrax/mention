@@ -36,7 +36,7 @@ async def start(event):
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /kuntul\n__You can use this command with text what you want to mention others.__\n`Example: /kuntul Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
+  helptext = "**Help Menu of MentionAllBot**\n\nCommand: #kuntul\n__You can use this command with text what you want to mention others.__\n`Example: #kuntul Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
   await event.reply(
     helptext,
     link_preview=False,
@@ -51,7 +51,7 @@ async def help(event):
     )
   )
   
-@client.on(events.NewMessage(pattern="^/all ?(.*)"))
+@client.on(events.NewMessage(pattern="^/tagall|/all|@all|#kuntul ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
