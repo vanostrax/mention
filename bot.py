@@ -33,7 +33,7 @@ async def start(event):
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /tagall\n__You can use this command with text what you want to mention others.__\n`Example: /tagall Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
+  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /kuntul\n__You can use this command with text what you want to mention others.__\n`Example: /kuntul Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
   await event.reply(
     helptext,
     link_preview=False,
@@ -52,6 +52,12 @@ async def mentionall(event):
     return await event.respond("__This command can be use in groups and channels!__")
 
 @client.on(events.NewMessage(pattern="^@all ?(.*)"))
+async def mentionall(event):
+  chat_id = event.chat_id
+  if event.is_private:
+    return await event.respond("__This command can be use in groups and channels!__")
+
+@client.on(events.NewMessage(pattern="^#kuntul ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
@@ -77,10 +83,10 @@ async def mentionall(event):
     ):
       is_admin = True
   if not is_admin:
-    return await event.respond("__Only admins can mention all!__")
+    return await event.respond("Hanya admin yang bisa mention all!")
   
   if event.pattern_match.group(1) and event.is_reply:
-    return await event.respond("__Give me one argument!__")
+    return await event.respond("Give me one argument!")
   elif event.pattern_match.group(1):
     mode = "text_on_cmd"
     msg = event.pattern_match.group(1)
@@ -123,7 +129,7 @@ async def cancel_spam(event):
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('__Stopped.__')
+    return await event.respond('All Telah Berhenti ⛔_')
 
 print(">> BOT STARTED <<")
 client.run_until_disconnected()
