@@ -45,19 +45,35 @@ async def help(event):
     )
   )
   
-@client.on(events.NewMessage(pattern="^@all ?(.*)"))
+@client.on(events.NewMessage(pattern="^/all |/memekall|/tagall ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
     return await event.respond("__This command can be use in groups and channels!__")
 
-@client.on(events.NewMessage(pattern="^/memekall ?(.*)"))
-async def mentionall(event):
-  chat_id = event.chat_id
-  if event.is_private:
-    return await event.respond("__This command can be use in groups and channels!__")
+  is_admin = False
+  try:
+    partici_ = await client(GetParticipantRequest(
+      event.chat_id,
+      event.sender_id
+    ))
+  except UserNotParticipantError:
+    is_admin = False
+  else:
+    if (
+      isinstance(
+        partici_.participant,
+        (
+          ChannelParticipantAdmin,
+          ChannelParticipantCreator
+        )
+      )
+    ):
+      is_admin = True
+  if not is_admin:
+    return await event.respond("__Only admins can mention all!__")
 
-@client.on(events.NewMessage(pattern="^/tagall |/memekall|@all ?(.*)"))
+@client.on(events.NewMessage(pattern="^@all |/memekall|/tagall ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
