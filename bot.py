@@ -45,7 +45,7 @@ async def help(event):
     )
   )
   
-@client.on(events.NewMessage(pattern="^/memekall|/kontolall|@all|#kuntul ?(.*)"))
+@client.on(events.NewMessage(pattern="^/tagall|/@all|/memekall|/kontolall|#kuntul ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
