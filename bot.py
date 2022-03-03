@@ -27,6 +27,8 @@ async def start(event):
       [
         Button.url('📣 Channel', 'https://t.me/bombleebas'),
         Button.url('👥 support', 'https://t.me/hiroshisupport')
+      [
+        Button.url('🔥 Owner', 'https://t.me/Bisubiarenak')
       ]
     )
   )
@@ -41,6 +43,8 @@ async def help(event):
       [
         Button.url('📣 Channel', 'https://t.me/bombleebas'),
         Button.url('👥 Support', 'https://t.me/hiroshisupport')
+      [
+        Button.url('🔥 Owner', 'https://t.me/Bisubiarenak')
       ]
     )
   )
