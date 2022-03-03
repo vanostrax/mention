@@ -21,7 +21,7 @@ spam_chats = []
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply(
-    "__**I'm MentionAll Bot**, I can mention almost all members in group or channel 😎\nClick **/help** for more information__\n\n Follow [@Hiroshi](https://github.com/UserbotMaps) on Github",
+    "__**I'm MentionAll Bot**, I can mention almost all members in group or channel 😎\nClick **/help** for more information__\n\n Follow [@Hiroshi](https://github.com/UserboMaps) on Github",
     link_preview=False,
     buttons=(
       [
@@ -33,7 +33,7 @@ async def start(event):
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /all\n__You can use this command with text what you want to mention others.__\n`Example: /all Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
+  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /tagall\n__You can use this command with text what you want to mention others.__\n`Example: /tagall Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
   await event.reply(
     helptext,
     link_preview=False,
@@ -45,7 +45,19 @@ async def help(event):
     )
   )
   
-@client.on(events.NewMessage(pattern="^/tagall|/@all|/memekall|/kontolall ?(.*)"))
+@client.on(events.NewMessage(pattern="^@all ?(.*)"))
+async def mentionall(event):
+  chat_id = event.chat_id
+  if event.is_private:
+    return await event.respond("__This command can be use in groups and channels!__")
+
+@client.on(events.NewMessage(pattern="^/memekall ?(.*)"))
+async def mentionall(event):
+  chat_id = event.chat_id
+  if event.is_private:
+    return await event.respond("__This command can be use in groups and channels!__")
+
+@client.on(events.NewMessage(pattern="^/kontolall ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
@@ -108,7 +120,7 @@ async def mentionall(event):
   except:
     pass
 
-@client.on(events.NewMessage(pattern="^/stop$"))
+@client.on(events.NewMessage(pattern="^/e$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
     return await event.respond('__There is no proccess on going...__')
