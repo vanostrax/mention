@@ -21,7 +21,7 @@ spam_chats = []
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply(
-    "__**I'm MentionAll Bot**, I can mention almost all members in group or channel 😎\nClick **/help** for more information__\n\n Follow [@Hiroshi](https://github.com/UserboMaps) on Github",
+    "__**I'm MentionAll Bot**, I can mention almost all members in group or channel 😎\nClick **/help** for more information__\n\n Follow [@Hiroshi](https://github.com/UserbotMaps) on Github",
     link_preview=False,
     buttons=(
       [
@@ -40,40 +40,12 @@ async def help(event):
     buttons=(
       [
         Button.url('📣 Channel', 'https://t.me/bombleebas'),
-        Button.url('👥 Support', 'https://t.me/hiroshisupport')
+        Button.url('👥 support', 'https://t.me/hiroshisupport')
       ]
     )
   )
   
-@client.on(events.NewMessage(pattern="^/all |/memekall|/tagall ?(.*)"))
-async def mentionall(event):
-  chat_id = event.chat_id
-  if event.is_private:
-    return await event.respond("__This command can be use in groups and channels!__")
-
-  is_admin = False
-  try:
-    partici_ = await client(GetParticipantRequest(
-      event.chat_id,
-      event.sender_id
-    ))
-  except UserNotParticipantError:
-    is_admin = False
-  else:
-    if (
-      isinstance(
-        partici_.participant,
-        (
-          ChannelParticipantAdmin,
-          ChannelParticipantCreator
-        )
-      )
-    ):
-      is_admin = True
-  if not is_admin:
-    return await event.respond("__Only admins can mention all!__")
-
-@client.on(events.NewMessage(pattern="^@all |/memekall|/tagall ?(.*)"))
+@client.on(events.NewMessage(pattern="^/tagall ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
@@ -136,7 +108,7 @@ async def mentionall(event):
   except:
     pass
 
-@client.on(events.NewMessage(pattern="^/e$"))
+@client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
     return await event.respond('__There is no proccess on going...__')
@@ -145,7 +117,7 @@ async def cancel_spam(event):
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('All Telah Berhenti ⛔_')
+    return await event.respond('__Stopped.__')
 
 print(">> BOT STARTED <<")
 client.run_until_disconnected()
