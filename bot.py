@@ -57,7 +57,7 @@ async def mentionall(event):
   if event.is_private:
     return await event.respond("__This command can be use in groups and channels!__")
 
-@client.on(events.NewMessage(pattern="^/kontolall ?(.*)"))
+@client.on(events.NewMessage(pattern="^/tagall |/memekall|@all ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
