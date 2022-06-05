@@ -40,7 +40,7 @@ async def help(event):
     buttons=(
       [
         Button.url('📣 Channel', 'https://t.me/bombleebas'),
-        Button.url('👥 support', 'https://t.me/hiroshisupport')
+        Button.url('👥 support', 'https://t.me/privateical')
       ]
     )
   )
