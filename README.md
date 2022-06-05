@@ -16,4 +16,5 @@ API_HASH # Get this value from my.telegram.org! Please do not steal
 
 ### 📍 Credits and Other
 - [Rendy](https://github.com/Randi356)
-- [Hiroshi](https://github.com/Randi356) 
+- [Hiroshi](https://github.com/Randi356)
+- [Ical](https://github.com/Randi356) 
