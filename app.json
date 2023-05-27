@@ -1,6 +1,7 @@
 {
-  "name": "Mention All Bot",
-  "description": "A simple mention all for telegram.",
+  "name": "Hiroshi-Userbot",
+  "description": "[PyroNeeh-Userbot] adalah userbot Telegram modular yang berjalan di Python3 dengan Library Pyrogram.",
+  "stack": "heroku-22",
   "env": {
     "TOKEN": {
       "description": "Enter bot token.",
