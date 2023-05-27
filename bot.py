@@ -18,22 +18,22 @@ bot_token = os.environ.get("TOKEN")
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 spam_chats = []
 
-@client.on(events.NewMessage(pattern="^/start$"))
-async def start(event):
-  await event.reply(
-    "__**I'm MentionAll Bot**, I can mention almost all members in group or channel 😎\nClick **/help** for more information__\n\n Follow [@Hiroshi](https://github.com/UserbotMaps) on Github",
-    link_preview=False,
-    buttons=(
-      [
-        Button.url('📣 Channel', 'https://t.me/xstylbral'),
-        Button.url('👥 support', 'https://t.me/astromutes')
-      ]
-    )
-  )
+### @client.on(events.NewMessage(pattern="^/start$"))
+## async def start(event):
+##  await event.reply(
+##    "__**I'm MentionAll Bot**, I can mention almost all members in group or channel 😎\nClick **/help** for more information__\n\n Follow [@Hiroshi](https://github.com/UserbotMaps) on Github",
+##    link_preview=False,
+##    buttons=(
+##      [
+##        Button.url('📣 Channel', 'https://t.me/xstylbral'),
+##        Button.url('👥 support', 'https://t.me/astromutes')
+##      ]
+##    )
+##  )
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /all\n__You can use this command with text what you want to mention others.__\n`Example: /tagall Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/vanostrax) on Github"
+  helptext = "**Help Menu of MentionAllBot**\n\nCommand: @all\n__You can use this command with text what you want to mention others.__\n`Contoh: /all Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@support](https://t.me/xstylbral) "
   await event.reply(
     helptext,
     link_preview=False,
