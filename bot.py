@@ -93,22 +93,23 @@ async def mentionall(event):
     return await event.respond("__Reply to a message or give me some text to mention others!__")
   
   spam_chats.append(chat_id)
-  usrnum = 0
-  usrtxt = ''
-  async for usr in client.iter_participants(chat_id):
-    if not chat_id in spam_chats:
-      break
-    usrnum += 1
-    usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
-    if usrnum == 5:
-      if mode == "text_on_cmd":
-        txt = f"{usrtxt}\n\n{msg}"
-        await client.send_message(chat_id, txt)
-      elif mode == "text_on_reply":
-        await msg.reply(usrtxt)
-      await asyncio.sleep(2)
-      usrnum = 0
-      usrtxt = ''
+  Spam = spam_chats.append(chat_id)
+    usrnum = 0
+    usrtxt = ""
+    async for usr in Client.iter_participants(chat_id):
+        if not chat_id in spam_chats:
+            break
+        usrnum += 1
+        usrtxt += f"✆ [{usr.first_name}](tg://user?id={usr.id})\n"
+        if usrnum == 5:
+            if mode == "text_on_cmd":
+                txt = f"{msg}\n\n{usrtxt}"
+                await Client.send_message(chat_id, txt)
+            elif mode == "text_on_reply":
+                await msg.reply(usrtxt)
+            await asyncio.sleep(2)
+            usrnum = 0
+            usrtxt = ""
   try:
     spam_chats.remove(chat_id)
   except:
