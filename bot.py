@@ -25,22 +25,22 @@ async def start(event):
     link_preview=False,
     buttons=(
       [
-        Button.url('📣 Channel', 'https://t.me/bombleebas'),
-        Button.url('👥 support', 'https://t.me/hiroshisupport')
+        Button.url('📣 Channel', 'https://t.me/xyzrannnn'),
+        Button.url('👥 support', 'https://t.me/pintarsupport')
       ]
     )
   )
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /tagall\n__You can use this command with text what you want to mention others.__\n`Example: /tagall Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/UserbotMaps) on Github"
+  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /all\n__You can use this command with text what you want to mention others.__\n`Example: /tagall Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@Hiroshi](https://github.com/vanostrax) on Github"
   await event.reply(
     helptext,
     link_preview=False,
     buttons=(
       [
-        Button.url('📣 Channel', 'https://t.me/bombleebas'),
-        Button.url('👥 support', 'https://t.me/privateical')
+        Button.url('📣 Channel', 'https://t.me/xyzrannnn'),
+        Button.url('👥 support', 'https://t.me/pintarsupport')
       ]
     )
   )
