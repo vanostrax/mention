@@ -11,7 +11,7 @@ API_HASH # Get this value from my.telegram.org! Please do not steal
 ```
 
 ### 🔷️ Deploy to heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/UserbotMaps/Mention)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vanostrax/Mention)
 
 
 ### 📍 Credits and Other
