@@ -1,6 +1,6 @@
 {
-  "name": "Hiroshi-Userbot",
-  "description": "[PyroNeeh-Userbot] adalah userbot Telegram modular yang berjalan di Python3 dengan Library Pyrogram.",
+  "name": "Mention-Userbot",
+  "description": "[Mention Userbot].",
   "stack": "heroku-22",
   "env": {
     "TOKEN": {
