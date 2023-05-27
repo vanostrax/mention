@@ -93,9 +93,8 @@ async def mentionall(event):
     return await event.respond("__Reply to a message or give me some text to mention others!__")
   
   spam_chats.append(chat_id)
-  Spam = spam_chats.append(chat_id)
-    usrnum = 0
-    usrtxt = ""
+  usrnum = 0
+  usrtxt = ''
     async for usr in Client.iter_participants(chat_id):
         if not chat_id in spam_chats:
             break
